@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💐</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff0f5;
+    color: #54213a;
+    overflow-x: hidden;
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #ffb6cf, #ff7eaa, #d94f82);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 1s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    padding: 30px;
+    color: white;
+}
+
+.opening h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    margin-bottom: 10px;
+}
+
+.opening p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.open-btn {
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    background: white;
+    color: #d94f82;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    transition: .3s;
+}
+
+.open-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    min-height: 100vh;
+}
+
+section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: min(1100px, 100%);
+    margin: auto;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(circle at top left, #ffd9e6, transparent 40%),
+        linear-gradient(135deg, #fff5f8, #ffe2ec);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #c73f72;
+}
+
+.hero .subtitle {
+    font-size: 1.1rem;
+    margin: 10px auto 35px;
+    max-width: 600px;
+}
+
+/* =========================
+   BOUQUET
+========================= */
+
+.bouquet {
+    width: 330px;
+    height: 360px;
+    margin: 20px auto 35px;
+    position: relative;
+}
+
+.flower {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    animation: flowerFloat 3s ease-in-out infinite;
+}
+
+.flower:nth-child(1) {
+    left: 30px;
+    top: 100px;
+}
+
+.flower:nth-child(2) {
+    left: 115px;
+    top: 40px;
+    animation-delay: .3s;
+}
+
+.flower:nth-child(3) {
+    right: 25px;
+    top: 105px;
+    animation-delay: .6s;
+}
+
+.flower:nth-child(4) {
+    left: 75px;
+    top: 5px;
+    animation-delay: .9s;
+}
+
+.flower:nth-child(5) {
+    right: 80px;
+    top: 5px;
+    animation-delay: 1.2s;
+}
+
+.petal {
+    position: absolute;
+    width: 45px;
+    height: 60px;
+    background: #ff5f9e;
+    border-radius: 50% 50% 45% 45%;
+    left: 22px;
+    top: 10px;
+    transform-origin: 50% 100%;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-15px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-15px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-15px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-15px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-15px); }
+
+.center {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #ffd166;
+    border-radius: 50%;
+    left: 30px;
+    top: 35px;
+    z-index: 2;
+}
+
+.stem {
+    position: absolute;
+    width: 8px;
+    height: 180px;
+    background: #5e9b61;
+    left: 42px;
+    top: 65px;
+    transform: rotate(-8deg);
+    border-radius: 10px;
+}
+
+.leaf {
+    position: absolute;
+    width: 55px;
+    height: 25px;
+    background: #62a765;
+    border-radius: 100% 0;
+    left: 50px;
+    top: 170px;
+    transform: rotate(25deg);
+}
+
+.leaf.two {
+    left: 0;
+    top: 210px;
+    transform: rotate(-25deg);
+}
+
+.wrap {
+    position: absolute;
+    bottom: 0;
+    left: 45px;
+    width: 240px;
+    height: 150px;
+    background: linear-gradient(135deg, #f7c6d8, #d98eae);
+    clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+    z-index: 5;
+}
+
+.ribbon {
+    position: absolute;
+    bottom: 10px;
+    left: 140px;
+    width: 50px;
+    height: 55px;
+    background: #b93668;
+    z-index: 6;
+    border-radius: 5px;
+}
+
+@keyframes flowerFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-section {
+    background: #fff;
+}
+
+.message-card {
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(190, 74, 119, .15);
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.message-card h2 {
+    font-family: "Dancing Script", cursive;
+    color: #c73f72;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.message-card p {
+    line-height: 2;
+    color: #6e4657;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-section {
+    background: linear-gradient(135deg, #ffe5ee, #fff8fa);
+}
+
+.video-container {
+    text-align: center;
+}
+
+.video-container h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 4rem;
+    color: #c73f72;
+    margin-bottom: 10px;
+}
+
+.video-container > p {
+    margin-bottom: 30px;
+}
+
+.video-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 10px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(190, 74, 119, .2);
+}
+
+video {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+    max-height: 500px;
+    background: #222;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 50px;
+    background: #d94f82;
+    color: white;
+    font-family: inherit;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #b93668;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: #54213a;
+    color: white;
+}
+
+footer span {
+    color: #ff8db7;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 15px;
+    top: -20px;
+    z-index: 2000;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: heartFloat 5s linear forwards;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes heartFloat {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 60px 15px;
+    }
+
+    .bouquet {
+        transform: scale(.8);
+        margin-top: -10px;
+        margin-bottom: 0;
+    }
+
+    .message-card {
+        padding: 30px 20px;
+    }
+
+    .message-card h2,
+    .video-container h2 {
+        font-size: 3rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div style="font-size: 4rem;">🎂</div>
+
+        <h1>Happy Birthday!</h1>
+
+        <p>
+            I prepared something special just for you 💐
+        </p>
+
+        <button class="open-btn" onclick="openBirthday()">
+            Open Your Surprise $
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="bouquet">
+
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+
+            <div class="flower">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="center"></div>
+            </div>
+
+            <div class="stem"></div>
+            <div class="leaf"></div>
+            <div class="leaf two"></div>
+
+            <div class="wrap"></div>
+            <div class="ribbon"></div>
+
+        </div>
+
+        <h2>Happy Birthday! 💐</h2>
+
+        <p class="subtitle">
+            Today is a special day because it's the day
+            someone truly wonderful was born. ✨
+        </p>
+
+        <div class="buttons">
+            <button class="btn" onclick="scrollToSection('message')">
+                💌 Read My Message
+            </button>
+
+            <button class="btn" onclick="scrollToSection('video')">
+                🎥 Watch Your Greeting
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MESSAGE
+========================= -->
+
+<section class="message-section" id="message">
+
+    <div class="container">
+
+        <div class="message-card">
+
+            <h2>A Special Message 💖</h2>
+
+            <p>
+                Happy Birthday to someone very special! 🎂
+                <br><br>
+                HAPPY BIRTHDAY BOI
+
+                <br><br>
+
+                HAPPY BIRTHDAY BOI
+                <br><br>
+
+                HAPPY BIRTHDAY BOI💐✨
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<section class="video-section" id="video">
+
+    <div class="container">
+
+        <div class="video-container">
+
+            <h2>For You 🎥💖</h2>
+
+            <p>
+                Here's a little birthday greeting made especially for you.
+            </p>
+
+            <div class="video-box">
+
+                <!--
+                    Replace birthday-video.mp4
+                    with the name of your own video.
+                -->
+
+                <video id="birthdayVideo" controls>
+
+                    <source
+                        src="birthday-video.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support video.
+
+                </video>
+
+            </div>
+
+            <div class="buttons">
+
+                <button class="btn" onclick="toggleVideo()">
+                    ▶️ Play / Pause
+                </button>
+
+                <button class="btn" onclick="createHearts()">
+                    $ Send Some Money
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    Made with 💖 for your special day
+    <br>
+    <span>Happy Birthday! 🎂💐✨</span>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   OPEN BIRTHDAY
+========================= */
+
+function openBirthday() {
+
+    const opening = document.getElementById("opening");
+
+    opening.classList.add("hide");
+
+    createConfetti();
+
+    setTimeout(() => {
+        createHearts();
+    }, 1000);
+}
+
+
+/* =========================
+   SCROLL
+========================= */
+
+function scrollToSection(id) {
+
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+function toggleVideo() {
+
+    const video = document.getElementById("birthdayVideo");
+
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const symbols = ["🎉", "✨", "💖", "🌸", "💕", "🎊"];
+
+    for (let i = 0; i < 60; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.innerHTML =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.fontSize =
+            Math.random() * 15 + 10 + "px";
+
+        confetti.style.animationDuration =
+            Math.random() * 3 + 3 + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 7000);
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 15; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.classList.add("heart");
+
+        heart.innerHTML = ["💖", "💕", "💗", "💓"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            Math.random() * 3 + 4 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }
+
+}
+
+
+/* =========================
+   AUTO HEARTS
+========================= */
+
+setInterval(() => {
+
+    if (
+        document.getElementById("opening")
+        .classList
+        .contains("hide")
+    ) {
+        createHearts();
+    }
+
+}, 10000);
+
+</script>
+
+</body>
+</html>
+```
